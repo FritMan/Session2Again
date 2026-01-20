@@ -110,6 +110,7 @@ namespace Session2Try2.Pages
             AddClientWindow addClientWindow = new AddClientWindow();
             addClientWindow.ShowDialog();
             LoadData();
+            // dfgd
         }
 
         private void AddServiceBtn_Click(object sender, RoutedEventArgs e)
