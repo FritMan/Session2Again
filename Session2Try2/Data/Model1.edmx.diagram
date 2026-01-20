@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="26b1cc4ad99049d2b02a63fcacf50026" Name="Diagram1">
+        <EntityTypeShape EntityType="SessionOneTry2BDModel.Client" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SessionOneTry2BDModel.Country" Width="1.5" PointX="1.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SessionOneTry2BDModel.EnterHistory" Width="1.5" PointX="7.5" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SessionOneTry2BDModel.Order" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SessionOneTry2BDModel.OrderService" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SessionOneTry2BDModel.Organisation" Width="1.5" PointX="1.5" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SessionOneTry2BDModel.Recycler" Width="1.5" PointX="7.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SessionOneTry2BDModel.RecyclerResult" Width="1.5" PointX="7.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SessionOneTry2BDModel.RecyclerWork" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SessionOneTry2BDModel.Role" Width="1.5" PointX="3" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SessionOneTry2BDModel.Service" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SessionOneTry2BDModel.ServiceComplete" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SessionOneTry2BDModel.SocialType" Width="1.5" PointX="1.5" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SessionOneTry2BDModel.Status" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SessionOneTry2BDModel.User" Width="1.5" PointX="5.25" PointY="22.75" IsExpanded="true" />
+        <AssociationConnector Association="SessionOneTry2BDModel.FK_Client_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="SessionOneTry2BDModel.FK_Client_Organisation" ManuallyRouted="false" />
+        <AssociationConnector Association="SessionOneTry2BDModel.FK_Client_SocialType" ManuallyRouted="false" />
+        <AssociationConnector Association="SessionOneTry2BDModel.FK_Order_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="SessionOneTry2BDModel.FK_EnterHistory_User" ManuallyRouted="false" />
+        <AssociationConnector Association="SessionOneTry2BDModel.FK_Order_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="SessionOneTry2BDModel.FK_OrderService_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="SessionOneTry2BDModel.FK_OrderService_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="SessionOneTry2BDModel.FK_OrderService_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="SessionOneTry2BDModel.FK_ServiceComplete_OrderService" ManuallyRouted="false" />
+        <AssociationConnector Association="SessionOneTry2BDModel.FK_RecyclerWork_Recycler" ManuallyRouted="false" />
+        <AssociationConnector Association="SessionOneTry2BDModel.FK_RecyclerWork_RecyclerResult" ManuallyRouted="false" />
+        <AssociationConnector Association="SessionOneTry2BDModel.FK_RecyclerWork_ServiceComplete" ManuallyRouted="false" />
+        <AssociationConnector Association="SessionOneTry2BDModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="SessionOneTry2BDModel.FK_ServiceComplete_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

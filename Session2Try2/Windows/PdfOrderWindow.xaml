@@ -1,0 +1,31 @@
+﻿<Window x:Class="Session2Try2.Windows.PdfOrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Session2Try2.Windows"
+        mc:Ignorable="d"
+        Title="PdfOrderWindow" Height="600" Width="800" Loaded="Window_Loaded">
+    <ScrollViewer>
+       
+        <StackPanel x:Name="OrderSp">
+            <Label Content="Дата создания"/>
+            <TextBox Text="{Binding DateCreate, StringFormat=d}"/>
+            <Label Content="Код"/>
+            <TextBox Text="{Binding Code}"/>
+            <Label Content="Организация"/>
+            <TextBox Text="{Binding Client.Organisation.Name}"/>
+            <Label Content="ФИО"/>
+            <TextBox Text="{Binding Client.Fio, Mode=OneWay}"/>
+            <Label Content="Дата рождения"/>
+            <TextBox Text="{Binding Client.DateBirth, StringFormat=d}"/>
+            <Label Content="Перечень услуг"/>
+            <DataGrid x:Name="ServiceDg" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Название" Binding="{Binding Service.Name}"/>
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Service.Price}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </ScrollViewer>
+</Window>
