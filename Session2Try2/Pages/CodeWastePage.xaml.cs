@@ -96,8 +96,20 @@ namespace Session2Try2.Pages
 
         private void SearchClientTb_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ClientCb.ItemsSource = Db.Client.Where(el => el.Name.Contains(SearchClientTb.Text) || el.Surname.Contains(SearchClientTb.Text) || el.Patronimic.Contains(SearchClientTb.Text)
-            || el.Phone.Contains(SearchClientTb.Text) || el.Email.Contains(SearchClientTb.Text) || el.Organisation.Name.Contains(SearchClientTb.Text) || el.DateBirth.ToString().Contains(SearchClientTb.Text)).ToList() ;
+            if(string.IsNullOrEmpty(SearchClientTb.Text))
+            {
+                ReadactBtn.Visibility
+                     = Visibility.Collapsed;
+            }
+            else
+            {
+                ClientCb.ItemsSource = Db.Client.Where(el => el.Name.Contains(SearchClientTb.Text) || el.Surname.Contains(SearchClientTb.Text) || el.Patronimic.Contains(SearchClientTb.Text)
+|| el.Phone.Contains(SearchClientTb.Text) || el.Email.Contains(SearchClientTb.Text) || el.Organisation.Name.Contains(SearchClientTb.Text) || el.DateBirth.ToString().Contains(SearchClientTb.Text)).ToList();
+
+                ReadactBtn.Visibility = Visibility.Visible;
+            }
+
+
         }
 
         private void ServiceSearchTb_TextChanged(object sender, TextChangedEventArgs e)
@@ -107,10 +119,9 @@ namespace Session2Try2.Pages
 
         private void AddClientBtn_Click(object sender, RoutedEventArgs e)
         {
-            AddClientWindow addClientWindow = new AddClientWindow();
+            AddClientWindow addClientWindow = new AddClientWindow(-1);
             addClientWindow.ShowDialog();
             LoadData();
-            // dfgd
         }
 
         private void AddServiceBtn_Click(object sender, RoutedEventArgs e)
@@ -141,6 +152,20 @@ namespace Session2Try2.Pages
             pdfOrderWindow.Show();
 
             NavigationService.GoBack();
+        }
+
+        private void ReadactBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var user = ClientCb.SelectedItem as Client;
+            if (user == null)
+            {
+                return ;
+            }
+
+            AddClientWindow addClientWindow = new AddClientWindow(user.Id);
+            addClientWindow.ShowDialog();
+            LoadData();
+            ReadactBtn.Visibility = Visibility.Collapsed;
         }
     }
 }

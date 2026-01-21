@@ -21,12 +21,22 @@ namespace Session2Try2.Windows
     /// </summary>
     public partial class AddClientWindow : Window
     {
-        public AddClientWindow()
+        private int _Id;
+        public AddClientWindow(int Id)
         {
             InitializeComponent();
             OrgCb.ItemsSource = Db.Organisation.ToList();
             DateBirthDp.SelectedDate = DateTime.Now.Date;
-            ClientSp.DataContext = new Client();
+            _Id = Id;
+
+            if (_Id == -1)
+            {
+                ClientSp.DataContext = new Client();
+            }
+            else
+            {
+                ClientSp.DataContext = Db.Client.FirstOrDefault(el => el.Id == _Id);
+            }
             
         }
 
@@ -34,13 +44,17 @@ namespace Session2Try2.Windows
         {
             try
             {
-                var client = ClientSp.DataContext as Client;
-                client.IsDeleted = false;
-                client.Password = "password";
-                client.Login = "client";
-                client.DateBirth = DateBirthDp.SelectedDate.Value.Date;
+                if(_Id == -1)
+                {
+                    var client = ClientSp.DataContext as Client;
+                    client.IsDeleted = false;
+                    client.Password = "password";
+                    client.Login = "client";
+                    client.DateBirth = DateBirthDp.SelectedDate.Value.Date;
 
-                Db.Client.Add(client);
+                    Db.Client.Add(client);
+                }
+
                 Db.SaveChanges();
                 Close();
             }

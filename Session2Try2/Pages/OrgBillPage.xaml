@@ -1,0 +1,49 @@
+﻿<Page x:Class="Session2Try2.Pages.OrgBillPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Session2Try2.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OrgBillPage">
+
+    <ScrollViewer>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" x:Name="BillSp">
+                <GroupBox Header="Название">
+                    <ComboBox x:Name="ClientCb" SelectedItem="{Binding Organisation}" SelectionChanged="ClientCb_SelectionChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </GroupBox>
+
+                <GroupBox Header="Период оплаты" >
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="С" />
+                        <DatePicker x:Name="StartDtp" SelectedDateChanged="StartDtp_SelectedDateChanged"/>
+                        <Label Content="по"/>
+                        <DatePicker x:Name="EndSp" SelectedDateChanged="EndSp_SelectedDateChanged"/>
+                    </StackPanel>
+                </GroupBox>
+
+                <DataGrid x:Name="ServiceDG" AutoGenerateColumns="False" IsReadOnly="True" Width="250">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Название" Binding="{Binding Service.Name}"/>
+                        <DataGridTextColumn Header="Цена" Binding="{Binding Service.Price}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <GroupBox Header="Заключительная сумма">
+                    <Label x:Name="TotoalLab"/>
+                </GroupBox>
+            </StackPanel>
+
+            <Button x:Name="SavePdfBtn" Click="SavePdfBtn_Click" Content="Сохранить в PDF"/>
+            <Button x:Name="SaveCsvBtn" Click="SaveCsvBtn_Click" Content="Сохранить в CSV"/>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

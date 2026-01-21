@@ -22,6 +22,8 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
 
+            <Button x:Name="ReadactBtn" Click="ReadactBtn_Click" Content="Редактировать" Visibility="Collapsed"/>
+
             <Button x:Name="AddClientBtn" Click="AddClientBtn_Click" Content="Добавить"/>
 
             <Label Content="Поиск"/>
