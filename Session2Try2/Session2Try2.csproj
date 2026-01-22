@@ -75,6 +75,9 @@
     <Compile Include="Pages\BillPage.xaml.cs">
       <DependentUpon>BillPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ClientBillPage.xaml.cs">
+      <DependentUpon>ClientBillPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\OrgBillPage.xaml.cs">
       <DependentUpon>OrgBillPage.xaml</DependentUpon>
     </Compile>
@@ -159,6 +162,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\BillPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ClientBillPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

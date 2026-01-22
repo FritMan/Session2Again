@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Session2Try2.Classes.Helper;
 
 namespace Session2Try2.Pages
 {
@@ -33,7 +34,7 @@ namespace Session2Try2.Pages
 
         private void SchetClient_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new ClientBillPage());
         }
     }
 }
